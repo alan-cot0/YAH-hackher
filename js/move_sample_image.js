@@ -16,12 +16,12 @@ document.addEventListener('keydown', function(event) {
 	var posY = 50;
 	clearIntevral(id);
 	if(event.key === 37) {
-		document.body.innerHTML += posX.toString();
 		posX--;
+		document.body.innerHTML += posX.toString();
 	}
 	if(event.key === 39) {
-		document.body.innerHTML += posX.toString();
 		posX++;
+		document.body.innerHTML += posX.toString();
 	}
 	img2.style.left = posX + 'px';
 });
