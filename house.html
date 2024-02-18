@@ -1,16 +1,94 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Starting Island</title>
-    <style>
-      body {
-        overflow: hidden;
+<head>
+  <title>Starting Island</title>
+  <style>
+    body {
+      overflow: hidden;
+    }
+    #popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      width: 300px;
+      z-index: 9999;
+      display: none;
+    }
+    #popup img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    /* Styling for the close button */
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <img id="map" src="images/IMG_2329.PNG" style="position:absolute;left:0px;top:-220px;transform:scale(1.25)">
+  <img id="chara" src="IMG_2306.PNG" style="position:absolute;left:600px;top:600px;height:150px;">
+  
+  
+  <div id="popup">
+    <span class="close-button" onclick="closePopup()">&times;</span>
+    <img id="popup-image" src="" alt="Popup Image">
+    <p id="popup-text">Popup Text</p>
+  </div>
+  <script src="witch_hut_movements.js"></script>
+
+  <script>
+   
+    function displayPopUp() {
+      var visitCount = parseInt(localStorage.getItem('visitCount')) || 0; 
+      
+
+      if (visitCount >= 3) {
+        localStorage.setItem('visitCount', 0);
+        visitCount = 0; 
+      } else if (visitCount ===0) {
+        visitCount += 1;
+      } else {
+        visitCount++; 
+        localStorage.setItem('visitCount', visitCount);
       }
-    </style>
-  </head>
-  <body>
-    <img id="map" src="images/IMG_2329.PNG" style="position:absolute;left:0px;top:-220px;scale:125%">
-    <img id="chara" src="IMG_2306.PNG" style="position:absolute;left:600px;top:600px;height:150px;">
-    <script src="witch_hut_movements.js">
-    </script>
-  </body>
+      var popupImage = document.getElementById('popup-image');
+      var popupText = document.getElementById('popup-text');
+
+      switch (visitCount) {
+        case 1:
+          /*popupImage.src = 'first_visit_image.jpg';*/
+          popupText.textContent = '/n Mom: Good morning, honey! /n Me: “Hi, mom and dad. I’m off to walk around our island. Do you want anything from the store while I’m out? /n Dad: Oh, all I really want is a good chocolate bar. It’s such a shame we aren’t allowed on candy island…Ah, ignore me, I’m just an old mushroom who misses days long past. Mom: Have fun out there, sweetie! Don’t stay out too late!;
+          break;
+        case 2:
+          /*popupImage.src = 'second_visit_image.jpg';*/
+          popupText.textContent = 'Mom: Welcome back sweetie!  /n Me: “Actually, I have to go. I’m going to fix our relationship with candy island and bring our colors back! /n Dad: “You don’t have to do this - it could be dangerous!   /n Me: “If I don’t do it, no one else will. /n Mom: “You’re right. It’s about time. I’m so proud of you, son.  /n Dad: “Just be careful out there. We love you!”;
+          break;
+        case 3:
+          /*popupImage.src = 'third_visit_image.jpg';*/
+          popupText.textContent = "Mom: You did it! I knew you could! /n Dad: “I/’d forgotten how beautiful the colors of our island are.” /n Mom: “You have made us proud with your bravery and wit, son. Now, let us go watch the sunset over the beach. How I have missed it after all these years.”;
+
+          visitCount = 0;
+          break;
+        default:
+          /*popupImage.src = 'generic_visit_image.jpg';*/
+          popupText.textContent = 'You\'ve saved the day!';
+          visitCount = 0;
+      }
+      document.getElementById('popup').style.display = 'block';
+    }
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+    displayPopUp();
+  </script>
+</body>
 </html>

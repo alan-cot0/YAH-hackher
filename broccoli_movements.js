@@ -24,7 +24,16 @@ function tryWarp() {
   window.location.replace("candy_island.html");
 }
 
+function wizardDialogue() {
+  alert("Wizard: Why have you come here, mushroom?");
+  alert("Me: Because this isn’t right, and you know it. What have you done to our worlds?");
+  alert("Wizard: I haven't done anything. This is merely what happens when you mortals fight over things that should not matter.");
+  alert("Me: You’re right. We’ve been blinded by our selfishness. But clearly, we are stronger together. I’m here today because my father misses chocolate and my mother misses the colors of the sunset. The candy islanders even helped me to find you.");
+  alert("Wizard: hm…perhaps your islands are ready, after all. There may still be hope. Well done, young one. You will serve this world well. From this day forth, the islands will be restored, and in their gratitude, candy islanders will open their borders and their hearts to mushrooms once again.");
+}
+
 function docReady() {
+  
   window.addEventListener('keydown', function(event) {
     if (keyMap[event.keyCode]) {
       keyMap[event.keyCode].pressed = true;
@@ -76,7 +85,7 @@ function docReady() {
       keyMap[event.keyCode].pressed = false;
     }
   })
-
+  wizardDialogue();
 }
 
 function left() {

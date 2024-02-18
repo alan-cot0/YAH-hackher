@@ -5,6 +5,31 @@
       body {
         overflow: hidden;
         background-image: "walkingcavescene.jpg";
+        #popup {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #fff;
+          border: 2px solid #333;
+          border-radius: 8px;
+          padding: 20px;
+          width: 300px;
+          z-index: 9999;
+          display: none;
+        }
+        #popup img {
+          width: 100px;
+          height: auto;
+          margin-bottom: 10px;
+        }
+        /* Styling for the close button */
+        .close-button {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+        }
       }
     </style>
   </head>
@@ -12,6 +37,8 @@
     <img id="walkingcavescene.jpg" src="walkingcavescene.jpg" style="position:absolute;left:0px;top:0px;height:100%;width:100%">
     <img id="WalkingMushroom" src="IMG_2306.PNG" style="position:absolute;left:50px;top:400px;height:150px;">
     <script src="walkingMushroomDude.js"></script>
+      <script>alert("“What is this place? I’ve never been here before…");</script>
+    </div>
     
   </body>
 </html>

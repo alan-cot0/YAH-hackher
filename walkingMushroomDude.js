@@ -12,7 +12,9 @@ const artifactY = 400;
 const scrollX = 590;
 const scrollY = 550;
 const artifactExitX = 0;
-const artifactExitY = 400;
+const artifactExitY = 550;
+const tunnelExitX = 10;
+const tunnelExitY = 400;
 
 const keyMap = {
   37: { pressed: false, func: right },
@@ -39,42 +41,50 @@ function docReady() {
        promptWarpArtifact();
       findArtifact();
        tryWarpOutArtifact();
+      freeFromTheTunnels();
 
     } else if (keyMap[38].pressed && keyMap[39].pressed) {
       up_right();
        promptWarpArtifact();
       findArtifact();
-       tryWarpOutArtifact()
+       tryWarpOutArtifact();
+      freeFromTheTunnels();
 
     } else if (keyMap[39].pressed && keyMap[40].pressed) {
       down_right();
        promptWarpArtifact();
       findArtifact();
        tryWarpOutArtifact();
+      freeFromTheTunnels();
 
     } else if (keyMap[40].pressed && keyMap[37].pressed) {
       down_left();
        promptWarpArtifact();
       findArtifact();
        tryWarpOutArtifact();
+      freeFromTheTunnels();
 
     } else if (keyMap[37].pressed) {
       left();
        promptWarpArtifact();
       findArtifact();
        tryWarpOutArtifact();
+      freeFromTheTunnels();
 
     } else if (keyMap[38].pressed) {
       up();
        promptWarpArtifact();
       findArtifact();
        tryWarpOutArtifact();
+      freeFromTheTunnels();
 
     } else if (keyMap[39].pressed) {
       right();
        promptWarpArtifact();
       findArtifact();
        tryWarpOutArtifact();
+      freeFromTheTunnels();
+      
       
 
     } else if (keyMap[40].pressed) {
@@ -82,6 +92,7 @@ function docReady() {
        promptWarpArtifact();
       findArtifact();
        tryWarpOutArtifact();
+      freeFromTheTunnels();
 
     } else {
       ;
@@ -238,4 +249,18 @@ function tryWarpOutArtifact() {
     falsifyKeyMap(); // probably unnecessary
   }
   
+}
+
+function freeFromTheTunnels() {
+  /*alert("Returning to the Starting Island...");*/
+  var e = document.getElementById("WalkingMushroom");
+  var posX = parseInt(e.style.left);
+  var posY = parseInt(e.style.top);
+
+  if(tunnelExitX == posX && tunnelExitY == posY) {
+    alert("I can see the light at the end of the tunnel...");
+    window.location.replace("starting_island.html");
+    falsifyKeyMap(); // probably unnecessary
+  }
+
 }
