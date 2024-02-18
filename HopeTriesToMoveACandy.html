@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #img {
+                position: relative;
+            }
+        </style>
+        <title>This is filler text</title>
+    </head>
+    <body>
+        <p>This is filler text</p>
+        <img src="example.jpeg" length="100" width="100" id="img" />
+        <script>
+            document.onkeydown = function(event) {
+                    switch (event.keyCode) {
+                       case 37:
+                      moveLeft();
+                          break;
+                       case 38:
+                      moveUp();
+                          break;
+                       case 39:
+                      moveRight();
+                          break;
+                       case 40:
+                      moveDown();
+                          break;
+                    }
+                };
+                function moveLeft() {
+                    document.getElementById("img").style.left += "50px";
+                }
+                function moveRight(){
+                    document.getElementById("img").style.right += "50px";
+                }
+                function moveDown(){
+                    document.getElementById("img").style.bottom += "50px";
+
+                function moveUp(){
+                    document.getElementById("img").style.top += "50px";
+                }
+        </script>
+    </body>
+</html>
